@@ -85,4 +85,9 @@ body {
 	body {
 		@apply bg-background text-foreground;
 	}
+
+	.bg-gradient {
+ 		border: 1px solid #3f4443;
+		background: radial-gradient(63.93% 63.93% at 50% 100%, #31f16f 0%, rgba(28, 28, 28, 0) 100%);
+	}
 }

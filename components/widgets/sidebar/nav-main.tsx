@@ -14,6 +14,8 @@ import {
 import { ChevronRight, LogOut, Settings } from 'lucide-react';
 import { sidebarTabs } from './tabs';
 import Link from 'next/link';
+import LogoutIcon from '@/components/reusable/svg-icons/logout';
+import SettingIcon from '@/components/reusable/svg-icons/setting';
 
 export function NavMain() {
 	return (
@@ -49,7 +51,7 @@ export function NavMain() {
 							</Collapsible>
 						) : (
 							<SidebarMenuItem key={item.title}>
-								<SidebarMenuButton tooltip={item.title}>
+								<SidebarMenuButton tooltip={item.title} className='data-[active=true]:bg-gradient  hover:bg-gradient ' isActive>
 									{item.icon && <item.icon />}
 									<Link href={item.url} passHref>
 										<span>{item.title}</span>
@@ -65,7 +67,7 @@ export function NavMain() {
 				<SidebarMenu>
 					<SidebarMenuItem key={'Setting'}>
 						<SidebarMenuButton tooltip={'Setting'}>
-							<Settings />
+							<SettingIcon />
 							<Link href={'/setting'} passHref>
 								<span>Setting</span>
 							</Link>
@@ -73,7 +75,7 @@ export function NavMain() {
 					</SidebarMenuItem>
 					<SidebarMenuItem key={'Logout'}>
 						<SidebarMenuButton tooltip={'Logout'}>
-							<LogOut />
+							<LogoutIcon />
 							<span>Logout</span>
 						</SidebarMenuButton>
 					</SidebarMenuItem>
