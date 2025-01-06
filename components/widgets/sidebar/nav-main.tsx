@@ -11,17 +11,21 @@ import {
 	SidebarGroup,
 	SidebarMenu,
 } from '@/components/ui/sidebar';
-import { ChevronRight, LogOut, Settings } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { sidebarTabs } from './tabs';
-import Link from 'next/link';
-import LogoutIcon from '@/components/reusable/svg-icons/logout';
 import SettingIcon from '@/components/reusable/svg-icons/setting';
+import LogoutIcon from '@/components/reusable/svg-icons/logout';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function NavMain() {
+	const pathname = usePathname();
+
 	return (
 		<div>
+			<p className='text-[#aaa] text-center font-[400] text-[10px]'>Menu</p>
 			<SidebarGroup>
-				<SidebarGroupLabel>Menu</SidebarGroupLabel>
+				{/* <SidebarGroupLabel>Menu</SidebarGroupLabel> */}
 				<SidebarMenu>
 					{sidebarTabs.map((item: any) =>
 						item?.collapse ? (
@@ -51,27 +55,36 @@ export function NavMain() {
 							</Collapsible>
 						) : (
 							<SidebarMenuItem key={item.title}>
-								<SidebarMenuButton tooltip={item.title} className='data-[active=true]:bg-gradient  hover:bg-gradient ' isActive>
-									{item.icon && <item.icon />}
-									<Link href={item.url} passHref>
+								<Link href={item.url} passHref>
+									<SidebarMenuButton
+										tooltip={item.title}
+										isActive={pathname === item.url}
+										className={pathname === item.url ? 'data-[active=true]:bg-gradient  hover:bg-gradient' : ''}
+									>
+										{item.icon && <item.icon />}
 										<span>{item.title}</span>
-									</Link>
-								</SidebarMenuButton>
+									</SidebarMenuButton>
+								</Link>
 							</SidebarMenuItem>
 						)
 					)}
 				</SidebarMenu>
 			</SidebarGroup>
+			<p className='text-[#aaa] text-center font-[400] text-[10px]'>Support</p>
 			<SidebarGroup>
-				<SidebarGroupLabel>Support</SidebarGroupLabel>
+				{/* <SidebarGroupLabel>Support</SidebarGroupLabel> */}
 				<SidebarMenu>
 					<SidebarMenuItem key={'Setting'}>
-						<SidebarMenuButton tooltip={'Setting'}>
-							<SettingIcon />
-							<Link href={'/setting'} passHref>
+						<Link href={'/setting'} passHref>
+							<SidebarMenuButton
+								tooltip={'Setting'}
+								isActive={pathname === '/setting'}
+								className={pathname === '/setting' ? 'data-[active=true]:bg-gradient  hover:bg-gradient' : ''}
+							>
+								<SettingIcon />
 								<span>Setting</span>
-							</Link>
-						</SidebarMenuButton>
+							</SidebarMenuButton>
+						</Link>
 					</SidebarMenuItem>
 					<SidebarMenuItem key={'Logout'}>
 						<SidebarMenuButton tooltip={'Logout'}>

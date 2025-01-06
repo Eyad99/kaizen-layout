@@ -11,7 +11,7 @@ import {   SquareTerminal } from 'lucide-react';
 export const sidebarTabs = [
 	{
 		title: 'Dashboard',
-		url: '/',
+		url: '/dashboard',
 		icon: SquareFourIcon,
 		isActive: true,
 	},
@@ -22,27 +22,27 @@ export const sidebarTabs = [
 	},
 	{
 		title: 'Chart Bar',
-		url: '/',
+		url: '/chart-bar',
 		icon: ChartBarIcon,
 	},
 	{
 		title: 'DB',
-		url: '/',
+		url: '/db',
 		icon: DatabaseIcon,
 	},
 	{
 		title: 'Screen Chart',
-		url: '/',
+		url: '/screen-chart',
 		icon: ProjectScreenChartIcon,
 	},
 	{
 		title: 'Scales',
-		url: '/',
+		url: '/scales',
 		icon: ScalesIcon,
 	},
 	{
 		title: 'MegaPhone',
-		url: '/',
+		url: '/megaphone',
 		icon: MegaPhoneIcon,
 	},
 ];
