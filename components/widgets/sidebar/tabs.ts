@@ -1,11 +1,10 @@
 import ChartBarIcon from '@/components/reusable/svg-icons/chart-bar';
- import ChartPieSliceIcon from '@/components/reusable/svg-icons/chart-pie-slice';
+import ChartPieSliceIcon from '@/components/reusable/svg-icons/chart-pie-slice';
 import DatabaseIcon from '@/components/reusable/svg-icons/database';
 import MegaPhoneIcon from '@/components/reusable/svg-icons/mega-phone';
 import ProjectScreenChartIcon from '@/components/reusable/svg-icons/project-screen-chart';
 import ScalesIcon from '@/components/reusable/svg-icons/scales';
- import SquareFourIcon from '@/components/reusable/svg-icons/square-four';
-import {   SquareTerminal } from 'lucide-react';
+import SquareFourIcon from '@/components/reusable/svg-icons/square-four';
 // import SquaresFour from '/public/images/Megaphone.svg'
 
 export const sidebarTabs = [

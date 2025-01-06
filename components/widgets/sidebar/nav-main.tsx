@@ -13,19 +13,19 @@ import {
 } from '@/components/ui/sidebar';
 import { ChevronRight } from 'lucide-react';
 import { sidebarTabs } from './tabs';
+import { usePathname } from 'next/navigation';
 import SettingIcon from '@/components/reusable/svg-icons/setting';
 import LogoutIcon from '@/components/reusable/svg-icons/logout';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 export function NavMain() {
 	const pathname = usePathname();
 
 	return (
 		<div>
-			<p className='text-[#aaa] text-center font-[400] text-[10px]'>Menu</p>
+			<p className='text-[#aaa] text-center font-[400] text-[10px] md:block hidden'>Menu</p>
 			<SidebarGroup>
-				{/* <SidebarGroupLabel>Menu</SidebarGroupLabel> */}
+				<SidebarGroupLabel className='visible md:hidden'>Menu</SidebarGroupLabel>
 				<SidebarMenu>
 					{sidebarTabs.map((item: any) =>
 						item?.collapse ? (
@@ -70,9 +70,9 @@ export function NavMain() {
 					)}
 				</SidebarMenu>
 			</SidebarGroup>
-			<p className='text-[#aaa] text-center font-[400] text-[10px]'>Support</p>
+			<p className='text-[#aaa] text-center font-[400] text-[10px] md:block hidden'>Support</p>
 			<SidebarGroup>
-				{/* <SidebarGroupLabel>Support</SidebarGroupLabel> */}
+				<SidebarGroupLabel className='visible md:hidden'>Support</SidebarGroupLabel>
 				<SidebarMenu>
 					<SidebarMenuItem key={'Setting'}>
 						<Link href={'/setting'} passHref>
