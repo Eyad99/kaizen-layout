@@ -1,4 +1,5 @@
 import PerformanceMatrics from '@/components/pages/performance-matrics';
+import StrategyBuilder from '@/components/pages/strategy-builder';
 import React from 'react';
 
 const Kol = () => {
@@ -629,9 +630,11 @@ const Kol = () => {
 				</div>
 			</div>
 
-			{/* <div className='grid auto-rows-min'>
-				<div className='aspect-video rounded-xl bg-secondary' />
-			</div> */}
+			<div className='grid auto-rows-min'>
+				<div className='rounded-xl bg-secondary py-4 px-6'>
+					<StrategyBuilder data={data.data} />
+				</div>
+			</div>
 		</div>
 	);
 };
