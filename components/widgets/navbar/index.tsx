@@ -31,7 +31,7 @@ const Navbar = () => {
 					</TabsList>
 				</Tabs>
 
-				<div className='flex gap-4'>
+				<div className='md:flex gap-4 hidden'>
 					<Button variant={'lime'} className='w-[150px]'>
 						TG SIZE : 9,564
 					</Button>

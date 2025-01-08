@@ -10,9 +10,9 @@ export default {
 			},
 			colors: {
 				// background: 'hsl(var(--background))',
-				background: '#09070D',
 				foreground: 'hsl(var(--foreground))',
-  
+				background: '#09070D',
+
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',
@@ -43,7 +43,16 @@ export default {
 				},
 				'lime-green': {
 					DEFAULT: '#77FF60',
-					'rgba': 'rgba(119, 255, 96, 0.30)',
+					rgba: 'rgba(119, 255, 96, 0.30)',
+					light: '#182317',
+				},
+
+				rgba: {
+					'dropdown-menu': 'rgba(145, 145, 145, 0.50)',
+				},
+
+				merengo: {
+					DEFAULT: '#5B5B65',
 				},
 
 				border: 'hsl(var(--border))',

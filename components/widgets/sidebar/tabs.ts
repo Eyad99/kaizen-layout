@@ -16,7 +16,7 @@ export const sidebarTabs = [
 	},
 	{
 		title: 'Chart Slice',
-		url: '/',
+		url: '/kol',
 		icon: ChartPieSliceIcon,
 	},
 	{

@@ -10,6 +10,7 @@ const buttonVariants = cva(
 		variants: {
 			variant: {
 				lime: 'bg-lime-green-rgba text-primary-foreground shadow hover:bg-lime-green-rgba text-lime-green',
+				lightLime: 'bg-lime-green-light text-primary-foreground shadow hover:bg-lime-green-light text-lime-green',
 				default: 'bg-primary text-primary-foreground shadow hover:bg-primary/90',
 				destructive: 'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
 				outline: 'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',

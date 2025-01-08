@@ -87,7 +87,24 @@ body {
 	}
 
 	.bg-gradient {
- 		border: 1px solid #3f4443;
+		border: 1px solid #3f4443;
 		background: radial-gradient(63.93% 63.93% at 50% 100%, #31f16f 0%, rgba(28, 28, 28, 0) 100%);
+	}
+	.bg-gradient-red {
+		/* border: 1px solid #3f4443; */
+		background: radial-gradient(99.98% 99.98% at 50% 99.98%, #ff3f3f 0%, rgba(28, 28, 28, 0) 79.6%);
+	}
+
+	.text-gradient {
+		background: linear-gradient(90deg, #5b5b65 0%, #0e0e0e 69.21%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	.text-gradient-2 {
+		background: linear-gradient(91deg, #5b5b65 0%, #0e0e0e 100%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 }
