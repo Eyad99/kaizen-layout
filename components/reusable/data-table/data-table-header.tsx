@@ -13,7 +13,7 @@ const DataTableHeader = ({ table }: { table: any }) => {
 								key={header.id}
 								colSpan={header.colSpan}
 								onClick={header.column.getToggleSortingHandler()}
-								className='cursor-pointer border-b-[1px] border-gray-200 pb-2 pr-4 pt-4 text-start'
+								className='cursor-pointer border-b-[1px] border-transparent pb-2 text-start'
 							>
 								<div className='flex items-center gap-2 text-xs !text-lime-green'>
 									{header?.id !== 'actions' && (

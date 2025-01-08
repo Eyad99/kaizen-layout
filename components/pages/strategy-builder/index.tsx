@@ -7,6 +7,7 @@ import Dropdown from '@/components/reusable/dropdown';
 import { DataTableProps } from '@/core';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
+import StrategyBuilderFiltering from './filtering';
 
 const StrategyBuilder = ({ data }: { data: any }) => {
 	const tableProps: DataTableProps = {
@@ -27,7 +28,7 @@ const StrategyBuilder = ({ data }: { data: any }) => {
 		],
 	};
 	return (
-		<div className='flex flex-col gap-4'>
+		<div className='flex flex-col gap-6'>
 			<div className='flex justify-between'>
 				<h1 className='text-2xl font-bold'>Strategy Builder</h1>
 				<div className='flex items-center gap-4'>
@@ -54,9 +55,9 @@ const StrategyBuilder = ({ data }: { data: any }) => {
 				</Button>
 			</div>
 
-			<div>
-				<DataTable {...tableProps} />
-			</div>
+			<DataTable {...tableProps} />
+
+			<StrategyBuilderFiltering data={data} />
 		</div>
 	);
 };
