@@ -1,5 +1,6 @@
 import PerformanceMatrics from '@/components/pages/performance-matrics';
 import StrategyBuilder from '@/components/pages/strategy-builder';
+import PercentageGain from '@/components/pages/percentage-gain';
 import React from 'react';
 
 const Kol = () => {
@@ -619,10 +620,12 @@ const Kol = () => {
 	};
 	return (
 		<div className='flex flex-1 flex-col gap-4 p-4 pt-0'>
-			{/* <div className='grid auto-rows-min gap-4 md:grid-cols-2'>
-				<div className='aspect-video rounded-xl bg-secondary' />
-				<div className='aspect-video rounded-xl bg-secondary' />
-			</div> */}
+			<div className='grid auto-rows-min gap-4 md:grid-cols-2'>
+				<div className='rounded-xl bg-secondary py-4 px-6'>
+					<PercentageGain />
+				</div>
+				<div className='rounded-xl bg-secondary py-4 px-6' />
+			</div>
 
 			<div className='grid auto-rows-min'>
 				<div className='rounded-xl bg-secondary py-4 px-6'>
