@@ -623,7 +623,7 @@ const Kol = () => {
 	};
 	return (
 		<div className='flex flex-1 flex-col gap-4 p-4 pt-0'>
-			{/* <div className='grid auto-rows-min gap-4 md:grid-cols-2 grid-cols-1'>
+			<div className='grid auto-rows-min gap-4 md:grid-cols-2 grid-cols-1'>
 				<div className='rounded-xl bg-secondary py-4 px-6'>
 					<PercentageGain />
 				</div>
@@ -640,7 +640,7 @@ const Kol = () => {
 				<div className='rounded-xl bg-secondary py-4 px-6'>
 					<StrategyBuilder data={data.data} />
 				</div>
-			</div> */}
+			</div>
 
 			<div className='flex gap-4'>
 				<div className='flex flex-col gap-4 w-full md:w-1/2'>
