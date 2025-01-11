@@ -7,7 +7,7 @@ export interface ApiResponse<T = any> {
 	data: T;
 	statusCode: number;
 	message: string;
-	meta: { currentPage: number; itemsPerPage: number; totalItems: number; totalPages: number;  } | null;
+	meta: { currentPage: number; itemsPerPage: number; totalItems: number; totalPages: number } | null;
 	link: { current: string };
 }
 
@@ -35,9 +35,8 @@ const responseInterceptor = async (response: Response): Promise<ApiResponse | an
 		}
 		return Promise.reject(errorData);
 	}
-	return response.json();
+	return await response.json();
 };
-
 
 // Helper function for making API requests
 const apiRequest = async (url: string, config: RequestInit = {}): Promise<ApiResponse | any> => {

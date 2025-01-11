@@ -6,8 +6,9 @@ import ClosedTrades from '@/components/pages/kol/closed-trades';
 import FloatingPnl from '@/components/pages/kol/floating-pnl';
 import AllTrades from '@/components/pages/kol/all-trades';
 import TopCalls from '@/components/pages/kol/top-calls';
+import { kolApi } from '@/core';
 
-const Kol = () => {
+const Kol = async () => {
 	const data = {
 		statusCode: 200,
 		message: 'Success',
@@ -622,6 +623,8 @@ const Kol = () => {
 			],
 		},
 	};
+
+	// const userData = await kolApi.users();
 	return (
 		<div className='flex flex-1 flex-col gap-4 p-4 pt-0'>
 			<div className='grid auto-rows-min gap-4 md:grid-cols-2 grid-cols-1'>
@@ -629,7 +632,7 @@ const Kol = () => {
 					<PercentageGain />
 				</div>
 				<div className='rounded-xl bg-secondary py-4 px-6'>
-					<TopCalls	 />
+					<TopCalls />
 				</div>
 			</div>
 

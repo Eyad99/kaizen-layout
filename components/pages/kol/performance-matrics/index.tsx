@@ -6,6 +6,7 @@ import { Progress } from '@/components/ui/progress';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { RecentSignal } from '@/core';
 
 const PerformanceMatrics = ({ data }: { data: any }) => {
 	function divideIntoGroups() {
@@ -64,14 +65,15 @@ const PerformanceMatrics = ({ data }: { data: any }) => {
 				<div className='flex flex-col justify-center items-center'>
 					<p className='text-[#D0D0DA] font-bold'>From (X'S)</p>
 					<div className='flex gap-2'>
-						{data.recentSignals?.map((item: any) => (
+						{data.recentSignals?.map((item: RecentSignal) => (
 							<div
+								key={item.id}
 								className={cn(
 									'flex items-center justify-center w-8 h-8 rounded-full !border-none',
-									Math.round(item?.athCallXs) == 0 ? 'bg-gradient-red' : 'bg-gradient'
+									Math.round(+item?.athCallXs) == 0 ? 'bg-gradient-red' : 'bg-gradient'
 								)}
 							>
-								{Math.round(item?.athCallXs)}
+								{Math.round(+item?.athCallXs)}
 							</div>
 						))}
 					</div>
