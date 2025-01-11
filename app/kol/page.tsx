@@ -1,10 +1,11 @@
+import React from 'react';
 import PerformanceMatrics from '@/components/pages/kol/performance-matrics';
 import StrategyBuilder from '@/components/pages/kol/strategy-builder';
 import PercentageGain from '@/components/pages/kol/percentage-gain';
-import React from 'react';
-import AllTrades from '@/components/pages/kol/all-trades';
 import ClosedTrades from '@/components/pages/kol/closed-trades';
 import FloatingPnl from '@/components/pages/kol/floating-pnl';
+import AllTrades from '@/components/pages/kol/all-trades';
+import TopCalls from '@/components/pages/kol/top-calls';
 
 const Kol = () => {
 	const data = {
@@ -627,7 +628,9 @@ const Kol = () => {
 				<div className='rounded-xl bg-secondary py-4 px-6'>
 					<PercentageGain />
 				</div>
-				<div className='rounded-xl bg-secondary py-4 px-6' />
+				<div className='rounded-xl bg-secondary py-4 px-6'>
+					<TopCalls	 />
+				</div>
 			</div>
 
 			<div className='grid auto-rows-min'>
