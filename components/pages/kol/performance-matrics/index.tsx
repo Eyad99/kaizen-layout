@@ -6,18 +6,22 @@ import { Progress } from '@/components/ui/progress';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { RecentSignal } from '@/core';
+import { KolDetails_Res, RecentSignal } from '@/core';
 
-const PerformanceMatrics = ({ data }: { data: any }) => {
-	function divideIntoGroups() {
-		const groups = [];
-		for (let i = 0; i < Object.entries(data.Xs).length; i += 5) {
-			groups.push(Object.entries(data.Xs).slice(i, i + 5));
-		}
-		return groups;
+const PerformanceMatrics = ({ data }: { data: KolDetails_Res }) => {
+	function transformData(obj: Record<string, string>) {
+		const entries = Object.entries(obj);
+		const firstGroup = entries.slice(0, 5).map(([key, value]) => ({
+			key,
+			value: parseInt(value, 10),
+		}));
+		const secondGroup = entries.slice(5).map(([key, value]) => ({
+			key,
+			value: parseInt(value, 10),
+		}));
+
+		return [firstGroup, secondGroup];
 	}
-	const groups = divideIntoGroups();
-	const groupedObjects = groups.map((group) => Object.fromEntries(group));
 
 	return (
 		<div className='flex flex-col gap-4'>
@@ -53,13 +57,15 @@ const PerformanceMatrics = ({ data }: { data: any }) => {
 			<div className='flex items-start justify-between'>
 				<div className='flex flex-col'>
 					<p className='text-[#D0D0DA] font-bold'>Number of calls</p>
-					<h4 className='text-lime-green text-[28px] font-bold'>100</h4>
+					<h4 className='text-lime-green text-[28px] font-bold'>{data.allCalls}</h4>
 				</div>
 
 				<div className='flex flex-col'>
 					<p className='text-[#D0D0DA] font-bold'>Win Rate</p>
-					<h4 className='text-lime-green text-[28px] font-bold'>73%</h4>
-					<span className='text-merengo'>73 wins / 27 Loses</span>
+					<h4 className='text-lime-green text-[28px] font-bold'>{(data.winRate * 100).toFixed(2)}%</h4>
+					<span className='text-merengo'>
+						{+data.winCalls} wins / {+data.allCalls - +data.winCalls} Loses
+					</span>
 				</div>
 
 				<div className='flex flex-col justify-center items-center'>
@@ -102,19 +108,24 @@ const PerformanceMatrics = ({ data }: { data: any }) => {
 
 				<div className='flex justify-between gap-6'>
 					<div className='flex w-[85%] gap-6'>
-						{groupedObjects?.map((item, index) => {
+						{transformData(data.Xs)?.map((item, index) => {
 							return (
 								<div key={index} className='flex gap-6 w-full'>
-									<div className='flex items-center gap-1 w-full'>
-										<span className='text-xs'>3x</span>
-										<Progress value={33} />
-										<span className='text-xs'>100</span>
+									<div key={index} className='flex flex-col gap-4 w-full'>
+										{item.map(({ key, value }) => (
+											<div className='flex items-center gap-1 w-full'>
+												<span className='text-xs w-8'>{key}</span>
+												<Progress value={value} />
+												<span className='text-xs'>{data.allCalls}</span>
+											</div>
+										))}
 									</div>
 									<Separator orientation='vertical' className='bg-lime-green h-auto' />
 								</div>
 							);
 						})}
 					</div>
+
 					<div className='flex flex-col gap-2 w-[15%]'>
 						{Array.from({ length: 2 }).map((_, inddex, array) => (
 							<div className='flex flex-col w-full' key={inddex}>

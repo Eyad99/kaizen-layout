@@ -33,7 +33,7 @@ export default function RootLayout({
 					<SidebarProvider>
 						<AppSidebar />
 						<SidebarInset>
-							<Navbar />
+							{/* <Navbar /> */}
 							<main>{children}</main>
 						</SidebarInset>
 					</SidebarProvider>

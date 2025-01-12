@@ -1,4 +1,4 @@
-const baseURL = 'https://jsonplaceholder.typicode.com/';
+const baseURL = 'https://analyst.kznhks.com/';
 
 import Cookies from 'js-cookie';
 import { KEY_TOKEN_COOKIE } from '../constants';
@@ -24,11 +24,11 @@ const requestInterceptor = (config: RequestInit): RequestInit => {
 };
 
 // Response Interceptor: Handle Errors
-const responseInterceptor = async (response: Response): Promise<ApiResponse | any> => {
+const responseInterceptor = async (response: Response & ApiResponse): Promise<ApiResponse> => {
 	if (!response.ok) {
 		const errorData = await response.json();
 
-		if (response.status === 401) {
+		if (response.statusCode === 401) {
 			window.location.href = '/401';
 		} else {
 			console.error('Error:', errorData.message || response.statusText);
@@ -39,7 +39,7 @@ const responseInterceptor = async (response: Response): Promise<ApiResponse | an
 };
 
 // Helper function for making API requests
-const apiRequest = async (url: string, config: RequestInit = {}): Promise<ApiResponse | any> => {
+const apiRequest = async (url: string, config: RequestInit = {}): Promise<ApiResponse> => {
 	const finalConfig = requestInterceptor({
 		...config,
 		headers: {
@@ -50,7 +50,7 @@ const apiRequest = async (url: string, config: RequestInit = {}): Promise<ApiRes
 	});
 
 	const response = await fetch(`${baseURL}${url}`, finalConfig);
-	return responseInterceptor(response);
+	return responseInterceptor(response as Response & ApiResponse);
 };
 
 // CRUD methods

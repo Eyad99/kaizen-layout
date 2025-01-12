@@ -5,8 +5,6 @@ export const kolApi = {
 	kolDetails: async (kolId: string) => get(`kols/${kolId}`),
 	kolOpportunity: async (kolId: string) => get(`kols/${kolId}/opportunity-score`),
 	strategyBuilderFiltering: async (data: StrategyBuilder_Req) => post(`strategy-builder/simulate`, data),
-	users: async () => get(`users`),
-	posts: async () => get(`posts`),
 };
 
 export async function Users() {
